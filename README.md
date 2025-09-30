@@ -14,24 +14,30 @@ Read the laptop lid angle via `pybooklid` and send it as an OSC (Open Sound Cont
 
 Install with uv or pip (Python >= 3.13 required as per `pyproject.toml`).
 
+## Thanks
+
+* [pybooklid](https://github.com/tcsenpai/pybooklid) 
+* [python-osc](https://github.com/attwad/python-osc)
+
+
 ## Usage
 
 Basic invocation (defaults to localhost:8000 and message address `/lid`):
 
 ```
-python -m main
+python -m lidosc
 ```
 
 Or explicitly:
 
 ```
-python main.py --ip 127.0.0.1 --port 8000 --message /lid
+python lidosc.py --ip 127.0.0.1 --port 8000 --message /lid
 ```
 
 Enable debug output:
 
 ```
-python main.py --debug
+python lidosc.py --debug
 ```
 
 ## Heartbeat / Interval
@@ -41,13 +47,13 @@ By default an interval of `0.5` seconds is used (see `--interval`). When enabled
 Disable the heartbeat and only send on change:
 
 ```
-python main.py --interval 0
+python lidosc.py --interval 0
 ```
 
 Send every 2 seconds regardless of change (plus immediate change events):
 
 ```
-python main.py --interval 2.0
+python lidosc.py --interval 2.0
 ```
 
 ## OSC Message
